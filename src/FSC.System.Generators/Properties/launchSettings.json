@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Roslyn": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\..\\tests\\FSC.System.Generators.Tests\\FSC.System.Generators.Tests.csproj"
+    }
+  }
+}

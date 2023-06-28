@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
+
+	  <LangVersion>Latest</LangVersion>
+
+	  <RootNamespace>FSC.System</RootNamespace>
+	  <AssemblyName>fsc.system.generators.runtime</AssemblyName>
+	  <Authors>Vadim Zabavnov</Authors>
+	  <Company>Fluent Software Corporation</Company>
+	  <VersionPrefix>1.0.1</VersionPrefix>
+	  <VersionSuffix>alpha</VersionSuffix>
+	  <Description>Contains runtime  types for generators</Description>
+	  <Copyright>Copyright Fluent Software Corporation 2023</Copyright>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+</Project>
