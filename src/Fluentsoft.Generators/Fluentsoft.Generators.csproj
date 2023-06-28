@@ -12,7 +12,7 @@
 		<Authors>Vadim Zabavnov</Authors>
 		<Company>Fluent Software Corporation</Company>
 
-		<VersionPrefix>1.0.2</VersionPrefix>
+		<VersionPrefix>1.0.3</VersionPrefix>
 		<Description>Contains system kind generators</Description>
 		<Copyright>Copyright Fluent Software Corporation 2023</Copyright>
 
@@ -70,7 +70,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Fluentsoft.Generators.Runtime\Fluentsoft.Generators.Runtime.csproj" />
+	  <ProjectReference Include="..\Fluentsoft.Generators.Runtime\Fluentsoft.Generators.Runtime.csproj" PrivateAssets="all"/>
 	</ItemGroup>
 
 </Project>
