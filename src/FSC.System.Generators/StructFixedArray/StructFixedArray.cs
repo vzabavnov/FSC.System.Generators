@@ -169,6 +169,24 @@ public class StructFixedArray : IIncrementalGenerator
         writer.WriteLine($"public {itemTypeName}[] ToArray() => Span.ToArray();");
         writer.WriteLine();
 
+        writer.WriteLine($"public void CopyTo({itemTypeName}[] target, int index)");
+        writer.AppendOpenBracket();
+        writer.WriteLine("Span.CopyTo(target.AsSpan(index));");
+        writer.AppendCloseBracket();
+        writer.WriteLine();
+
+        writer.WriteLine($"public void CopyTo(Span<{itemTypeName}> target)");
+        writer.AppendOpenBracket();
+        writer.WriteLine("Span.CopyTo(target);");
+        writer.AppendCloseBracket();
+        writer.WriteLine();
+
+        writer.WriteLine($"public void CopyTo(Memory<{itemTypeName}> target)");
+        writer.AppendOpenBracket();
+        writer.WriteLine("Span.CopyTo(target.Span);");
+        writer.AppendCloseBracket();
+        writer.WriteLine();
+
         GenerateStorageStruct(writer, storageTypeName, "private", elementTypeSymbol, "__t", size, token);
 
         writer.AppendCloseBracket();
