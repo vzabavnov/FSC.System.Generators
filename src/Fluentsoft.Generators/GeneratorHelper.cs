@@ -13,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-namespace FSC.System.Generators;
+namespace Fluentsoft.Generators;
 
 internal static class GeneratorHelper
 {
@@ -22,7 +22,6 @@ internal static class GeneratorHelper
     public const string SUPPRESS_OBSOLETE_WARNINGS_PRAGMA = "#pragma warning disable CS0612,CS0618";
     public const string SUPPRESS_TYPE_CONFLICTS_WARNINGS_PRAGMA = "#pragma warning disable CS0436";
     public const string INHERIT_DOC_COMMENT = "/// <inheritdoc/>";
-    public const string GENERATOR_CODE_ATTRIBUTE = "[GeneratedCode(\"FSC.System.Generators.StructFixedArray\", \"1.0.0.0\")]";
     public const string STRUCT_LAYOUT_PACK1_ATTRIBUTE = "[StructLayout(LayoutKind.Sequential, Pack = 1)]";
 
     public const string SYSTEM = "System";

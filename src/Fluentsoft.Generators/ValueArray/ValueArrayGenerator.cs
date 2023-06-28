@@ -13,30 +13,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-namespace FSC.System.Generators;
+namespace Fluentsoft.Generators;
 
 [Generator(LanguageNames.CSharp)]
-public class StructFixedArray : IIncrementalGenerator
+public class ValueArrayGenerator : IIncrementalGenerator
 {
-    public const string FIXED_ARRAY_ATTRIBUTE_NAME = "FSC.System.FixedArrayAttribute`1";
+    public const string VALUE_ARRAY_ATTRIBUTE_NAME = "Fluentsoft.System.ValueArrayAttribute`1";
 
     private static readonly DiagnosticDescriptor _invalidArraySize = new("FSC0001",
         "Cannot create an array of negative size",
         "Cannot create an array with a negative size or empty",
-        "FSCGenerator",
+        "FluentsoftGenerator",
         DiagnosticSeverity.Error,
         true);
 
     private static readonly DiagnosticDescriptor _emptyArray = new("FSC0002",
         "Will create an empty array",
         "Will create an empty array",
-        "FSCGenerator",
+        "FluentsoftGenerator",
         DiagnosticSeverity.Warning,
         true);
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        var provider = context.SyntaxProvider.ForAttributeWithMetadataName(FIXED_ARRAY_ATTRIBUTE_NAME,
+        var provider = context.SyntaxProvider.ForAttributeWithMetadataName(VALUE_ARRAY_ATTRIBUTE_NAME,
             (node, _) => node is StructDeclarationSyntax,
             (syntaxContext, _) => syntaxContext);
 

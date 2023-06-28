@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Roslyn": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\..\\tests\\Fluentsoft.Generators.Tests\\Fluentsoft.Generators.Tests.csproj"
+    }
+  }
+}

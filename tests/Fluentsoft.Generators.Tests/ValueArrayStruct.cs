@@ -13,24 +13,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-namespace FSC.System;
+using Fluentsoft.System;
 
-[AttributeUsage(AttributeTargets.Struct)]
-public class FixedArrayAttribute<T> : Attribute where T : unmanaged
+namespace Fluentsoft.Generators.Tests
 {
-    public FixedArrayAttribute(int size)
+    public struct My
     {
-        Size = size;
-        Type = typeof(T);
+        public char C;
+        public double D;
+        public int N;
     }
 
-    /// <summary>
-    ///     The type of array's element
-    /// </summary>
-    public Type Type { get; }
-
-    /// <summary>
-    ///     The number of elements in the array
-    /// </summary>
-    public int Size { get; }
+    
+    [ValueArray<My>(3)]
+    public partial struct ValueArrayStruct
+    {
+    }
 }

@@ -13,21 +13,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using FSC.System.Generators.Tests.AnotherOne;
+namespace Fluentsoft.Generators.Tests;
 
-namespace FSC.System.Generators.Tests;
-
-public class StructFixedArrayTests
+public class ValueArrayTests
 {
     [Fact]
     public unsafe void TestFixedStruct()
     {
         var stSize = sizeof(My);
 
-        var f = new FixedStructArray();
-        Assert.Equal(3, FixedStructArray.Length);
+        var f = new ValueArrayStruct();
+        Assert.Equal(3, ValueArrayStruct.Length);
 
-        Assert.Equal(stSize * FixedStructArray.Length, sizeof(FixedStructArray));
+        Assert.Equal(stSize * ValueArrayStruct.Length, sizeof(ValueArrayStruct));
 
         f[0].C = 'A';
         Assert.Equal('A', f[0].C);

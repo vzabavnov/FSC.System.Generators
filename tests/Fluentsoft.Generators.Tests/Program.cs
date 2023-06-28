@@ -13,24 +13,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-namespace FSC.System.Generators.Tests
+using Fluentsoft.System;
+
+var st = new MyStruct(stackalloc int[] { 1, 2, 3, 4, 5 });
+
+Console.WriteLine(st.Count);
+
+foreach (var s in st)
 {
-    public struct My
-    {
-        public char C;
-        public double D;
-        public int N;
-    }
+    Console.WriteLine(s);
+}
 
-    namespace AnotherOne
-    {
-        [FixedArray<My>(3)]
-        public partial struct FixedStructArray
-        {
-        }
-
-        internal class Nested
-        {
-        }
-    }
+[ValueArray<int>(5)]
+public partial struct MyStruct
+{
 }

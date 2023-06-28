@@ -7,15 +7,13 @@
 
 	  <LangVersion>Latest</LangVersion>
 
-	  <RootNamespace>FSC.System</RootNamespace>
-	  <AssemblyName>fsc.system.generators.runtime</AssemblyName>
+	  <RootNamespace>Fluentsoft.System</RootNamespace>
+	  <AssemblyName>fluentsoft.generators.runtime</AssemblyName>
 	  <Authors>Vadim Zabavnov</Authors>
 	  <Company>Fluent Software Corporation</Company>
-	  <VersionPrefix>1.0.1</VersionPrefix>
-	  <VersionSuffix>alpha</VersionSuffix>
-	  <Description>Contains runtime  types for generators</Description>
+	  <VersionPrefix>1.0.0</VersionPrefix>
+	  <Description>Contains runtime types for Fluentsoft generators</Description>
 	  <Copyright>Copyright Fluent Software Corporation 2023</Copyright>
-	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
 
