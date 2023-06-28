@@ -50,7 +50,8 @@ The **ElementTypeName** is a name of array element type.
 
 ### Example
 ```c#
-using FSC.System;
+using Fluentsoft.System;
+using Xunit;
 
 Assert.Equal(3, ValueArrayStruct.Length);
 Assert.Equal(3 * sizeof(My), sizeof(ValueArrayStruct))

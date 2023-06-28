@@ -12,7 +12,7 @@
 		<Authors>Vadim Zabavnov</Authors>
 		<Company>Fluent Software Corporation</Company>
 
-		<VersionPrefix>1.0.3</VersionPrefix>
+		<VersionPrefix>1.0.4</VersionPrefix>
 		<Description>Contains system kind generators</Description>
 		<Copyright>Copyright Fluent Software Corporation 2023</Copyright>
 
@@ -32,6 +32,7 @@
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<PackageProjectUrl>https://github.com/vzabavnov/Fluentsoft.Generators</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/vzabavnov/Fluentsoft.Generators</RepositoryUrl>
+		<PackageReleaseNotes>Fixing namespace in an example</PackageReleaseNotes>
 
 		<!--<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
