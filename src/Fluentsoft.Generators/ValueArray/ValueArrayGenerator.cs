@@ -133,22 +133,13 @@ public class ValueArrayGenerator : IIncrementalGenerator
         writer.WriteLine($"private {storageTypeName} _storage;");
         writer.WriteLine();
 
-        writer.WriteLine($"public {typeName}(Span<{itemTypeName}> source)");
-        writer.AppendOpenBracket();
-        writer.WriteLine("source.CopyTo(Span);");
-        writer.AppendCloseBracket();
+        writer.WriteLine($"public {typeName}(Span<{itemTypeName}> source) => source.CopyTo(Span);");
         writer.WriteLine();
 
-        writer.WriteLine($"public {typeName}(Memory<{itemTypeName}> source)");
-        writer.AppendOpenBracket();
-        writer.WriteLine("source.Span.CopyTo(Span);");
-        writer.AppendCloseBracket();
+        writer.WriteLine($"public {typeName}(Memory<{itemTypeName}> source) => source.Span.CopyTo(Span);");
         writer.WriteLine();
 
-        writer.WriteLine($"public {typeName}({itemTypeName}[] source)");
-        writer.AppendOpenBracket();
-        writer.WriteLine("source.CopyTo(Span);");
-        writer.AppendCloseBracket();
+        writer.WriteLine($"public {typeName}({itemTypeName}[] source) => source.CopyTo(Span);");
         writer.WriteLine();
 
         writer.WriteLine($"public int Count => {size};");
@@ -169,22 +160,17 @@ public class ValueArrayGenerator : IIncrementalGenerator
         writer.WriteLine($"public {itemTypeName}[] ToArray() => Span.ToArray();");
         writer.WriteLine();
 
-        writer.WriteLine($"public void CopyTo({itemTypeName}[] target, int index)");
-        writer.AppendOpenBracket();
-        writer.WriteLine("Span.CopyTo(target.AsSpan(index));");
-        writer.AppendCloseBracket();
+        writer.WriteLine($"public void CopyTo({itemTypeName}[] target, int index) => Span.CopyTo(target.AsSpan(index));");
         writer.WriteLine();
 
-        writer.WriteLine($"public void CopyTo(Span<{itemTypeName}> target)");
-        writer.AppendOpenBracket();
-        writer.WriteLine("Span.CopyTo(target);");
-        writer.AppendCloseBracket();
+        writer.WriteLine($"public void CopyTo(Span<{itemTypeName}> target) => Span.CopyTo(target);");
         writer.WriteLine();
 
-        writer.WriteLine($"public void CopyTo(Memory<{itemTypeName}> target)");
-        writer.AppendOpenBracket();
-        writer.WriteLine("Span.CopyTo(target.Span);");
-        writer.AppendCloseBracket();
+        writer.WriteLine($"public void CopyTo(Memory<{itemTypeName}> target) => Span.CopyTo(target.Span);");
+        writer.WriteLine();
+
+        writer.WriteLine(GeneratorHelper.UNSCOPEDREF_ATTRIBUTE);
+        writer.WriteLine($"public static implicit operator Span<{itemTypeName}>(in {typeName} source)  => source.Span;");
         writer.WriteLine();
 
         GenerateStorageStruct(writer, storageTypeName, "private", elementTypeSymbol, "__t", size, token);

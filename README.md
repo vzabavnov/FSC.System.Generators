@@ -48,6 +48,12 @@ The **ElementTypeName** is a name of array element type.
 |CopyTo(Span\<ElementTypeName\> target)|Copies the contents of this array into a destination Span\<T>\.|
 |CopyTo(Memory\<ElementTypeName\> target)||
 
+**Operators**
+
+|Operator|Description|
+|-| - |
+|impilict operator Span\<ElementTypeName>|returns the Span|
+
 ### Example
 ```c#
 using Fluentsoft.System;

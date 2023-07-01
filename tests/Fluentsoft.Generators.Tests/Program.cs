@@ -15,14 +15,13 @@
 
 using Fluentsoft.System;
 
+// Create new Value array and initialize its values
 var st = new MyStruct(stackalloc int[] { 1, 2, 3, 4, 5 });
 
-Console.WriteLine(st.Count);
+// create copy by implicitly using operator Span<T>
+var stCopy = new MyStruct(st);
 
-foreach (var s in st)
-{
-    Console.WriteLine(s);
-}
+Console.WriteLine(string.Join(", ", st.ToArray()));
 
 [ValueArray<int>(5)]
 public partial struct MyStruct
