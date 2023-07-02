@@ -63,7 +63,7 @@ public class ValueArrayGenerator : IIncrementalGenerator
 
             var source = Generate(context, item);
 
-            var fileName = $"{item.TargetSymbol.ToDisplayString().EscapeFileName()}.StructFixedArray.g.cs";
+            var fileName = $"{item.TargetSymbol.ToDisplayString().EscapeFileName()}.ValueArray.g.cs";
             context.AddSource(fileName, source);
         }
     }
