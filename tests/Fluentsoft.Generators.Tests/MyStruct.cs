@@ -15,18 +15,9 @@
 
 using Fluentsoft.System;
 
-namespace Fluentsoft.Generators.Tests
-{
-    public struct My
-    {
-        public char C;
-        public double D;
-        public int N;
-    }
+namespace Fluentsoft.Generators.Tests;
 
-    
-    [ValueArray<My>(3)]
-    public partial struct ValueArrayStruct
-    {
-    }
+[ValueArray<int>(5)]
+public partial struct MyStruct
+{
 }

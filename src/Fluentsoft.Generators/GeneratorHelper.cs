@@ -24,6 +24,8 @@ internal static class GeneratorHelper
     public const string INHERIT_DOC_COMMENT = "/// <inheritdoc/>";
     public const string STRUCT_LAYOUT_PACK1_ATTRIBUTE = "[StructLayout(LayoutKind.Sequential, Pack = 1)]";
 
+    public const string SYSTEM_COLLECTIONS_GENERIC = "System.Collections.Generic";
+    public const string SYSTEM_COLLECTIONS = "System.Collections";
     public const string SYSTEM = "System";
     public const string SYSTEM_RUNTIME_INTEROP_SERVICES = "System.Runtime.InteropServices";
     public const string SYSTEM_DIAGNOSTICS = "System.Diagnostics";
@@ -109,7 +111,7 @@ internal static class GeneratorHelper
     }
 
     public static IndentedTextWriter WriteSymbolBlock(this IndentedTextWriter writer,
-        string[] usingStrings,
+        IEnumerable<string> usingStrings,
         ISymbol symbol,
         Action<IndentedTextWriter> writeContext)
     {

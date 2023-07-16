@@ -133,10 +133,10 @@ public class ValueArrayGenerator : IIncrementalGenerator
         writer.WriteLine($"private {storageTypeName} _storage;");
         writer.WriteLine();
 
-        writer.WriteLine($"public {typeName}(Span<{itemTypeName}> source) => source.CopyTo(Span);");
+        writer.WriteLine($"public {typeName}(ReadOnlySpan<{itemTypeName}> source) => source.CopyTo(Span);");
         writer.WriteLine();
 
-        writer.WriteLine($"public {typeName}(Memory<{itemTypeName}> source) => source.Span.CopyTo(Span);");
+        writer.WriteLine($"public {typeName}(ReadOnlyMemory<{itemTypeName}> source) => source.Span.CopyTo(Span);");
         writer.WriteLine();
 
         writer.WriteLine($"public {typeName}({itemTypeName}[] source) => source.CopyTo(Span);");
@@ -146,9 +146,9 @@ public class ValueArrayGenerator : IIncrementalGenerator
         writer.WriteLine();
 
         writer.WriteLine(GeneratorHelper.UNSCOPEDREF_ATTRIBUTE);
-        writer.WriteLine(
-            $"public Span<{itemTypeName}> Span => MemoryMarshal.Cast<{storageTypeName}, {itemTypeName}>(new Span<{storageTypeName}>(ref _storage));");
+        writer.WriteLine($"public Span<{itemTypeName}> Span => MemoryMarshal.Cast<{storageTypeName}, {itemTypeName}>(new Span<{storageTypeName}>(ref _storage));");
         writer.WriteLine();
+
         writer.WriteLine(GeneratorHelper.UNSCOPEDREF_ATTRIBUTE);
         writer.WriteLine($"public ref {itemTypeName} this[Index idx] => ref Span[idx];");
         writer.WriteLine();
@@ -169,8 +169,7 @@ public class ValueArrayGenerator : IIncrementalGenerator
         writer.WriteLine($"public void CopyTo(Memory<{itemTypeName}> target) => Span.CopyTo(target.Span);");
         writer.WriteLine();
 
-        writer.WriteLine(GeneratorHelper.UNSCOPEDREF_ATTRIBUTE);
-        writer.WriteLine($"public static implicit operator Span<{itemTypeName}>(in {typeName} source)  => source.Span;");
+        writer.WriteLine($"public static implicit operator ReadOnlySpan<{itemTypeName}>(in {typeName} source) => MemoryMarshal.Cast<{storageTypeName}, {itemTypeName}>(new ReadOnlySpan<{storageTypeName}>(in source._storage));");
         writer.WriteLine();
 
         GenerateStorageStruct(writer, storageTypeName, "private", elementTypeSymbol, "__t", size, token);

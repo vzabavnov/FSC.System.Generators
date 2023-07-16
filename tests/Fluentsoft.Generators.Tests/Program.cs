@@ -13,17 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using Fluentsoft.System;
-
 // Create new Value array and initialize its values
-var st = new MyStruct(stackalloc int[] { 1, 2, 3, 4, 5 });
+var st = new Fluentsoft.Generators.Tests.MyStruct(stackalloc int[] { 1, 2, 3, 4, 5 });
 
 // create copy by implicitly using operator Span<T>
-var stCopy = new MyStruct(st);
+var stCopy = new Fluentsoft.Generators.Tests.MyStruct(st);
 
 Console.WriteLine(string.Join(", ", st.ToArray()));
-
-[ValueArray<int>(5)]
-public partial struct MyStruct
-{
-}
