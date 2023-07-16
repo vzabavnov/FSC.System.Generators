@@ -25,7 +25,7 @@ The **ElementTypeName** is a name of array element type.
 
 | |
 |-|
-|StructTypeName(Span\<ElementTypeName\> source)|
+|StructTypeName(ReadonlySpan\<ElementTypeName\> source)|
 |StructTypeName(Memory\<ElementTypeName\> source)|
 |StructTypeName(ElementTypeName[] source)|
 
@@ -36,8 +36,8 @@ The **ElementTypeName** is a name of array element type.
 |const int Length|Length of the array|
 |Type ElementType|The type of array's element|
 |int Count|Number of item in the array|
-|Span\<ElementTypeName> Span|
-|ref ElementTypeName this[Index idx]||
+|Span\<ElementTypeName> Span|The [Span\<T>](https://learn.microsoft.com/en-us/dotnet/api/system.span-1?view=net-7.0) for the array
+|ref ElementTypeName this[Index idx]|The indexer to fo accesing to array items by reference|
 
 **Methods**
 
@@ -45,14 +45,14 @@ The **ElementTypeName** is a name of array element type.
 | - | - |
 |ToArray()|Copy all items to resulting array|
 |CopyTo(ElementTypeName[] target, int index)|Copies all the elements of the current one-dimensional array to the specified one-dimensional array starting at the specified destination array index.|
-|CopyTo(Span\<ElementTypeName\> target)|Copies the contents of this array into a destination Span\<T>\.|
-|CopyTo(Memory\<ElementTypeName\> target)||
+|CopyTo(Span\<ElementTypeName\> target)|Copies the contents of this array into a destination [Span\<T>\](https://learn.microsoft.com/en-us/dotnet/api/system.span-1?view=net-7.0)|
+|CopyTo(Memory\<ElementTypeName\> target)|Copies the contents of this array into a destination [Memory\<T>](https://learn.microsoft.com/en-us/dotnet/api/system.memory-1?view=net-7.0)|
 
 **Operators**
 
 |Operator|Description|
 |-| - |
-|impilict operator Span\<ElementTypeName>|returns the Span|
+|impilict operator ReadonlySpan\<ElementTypeName>|Implicitly converts the array to [ReadonlySpan\<T>](https://learn.microsoft.com/en-us/dotnet/api/system.readonlyspan-1?view=net-7.0)|
 
 ### Example
 ```c#
